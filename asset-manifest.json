@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/nPortfolio/static/css/main.8852dd85.css",
-    "main.js": "/nPortfolio/static/js/main.b7a90b2d.js",
-    "static/js/787.0535d523.chunk.js": "/nPortfolio/static/js/787.0535d523.chunk.js",
-    "index.html": "/nPortfolio/index.html",
-    "main.8852dd85.css.map": "/nPortfolio/static/css/main.8852dd85.css.map",
-    "main.b7a90b2d.js.map": "/nPortfolio/static/js/main.b7a90b2d.js.map",
-    "787.0535d523.chunk.js.map": "/nPortfolio/static/js/787.0535d523.chunk.js.map"
+    "main.css": "/Lalit9025/Web-Based-Writing-Tool/static/css/main.8852dd85.css",
+    "main.js": "/Lalit9025/Web-Based-Writing-Tool/static/js/main.f82f5105.js",
+    "static/js/787.0535d523.chunk.js": "/Lalit9025/Web-Based-Writing-Tool/static/js/787.0535d523.chunk.js",
+    "index.html": "/Lalit9025/Web-Based-Writing-Tool/index.html",
+    "main.8852dd85.css.map": "/Lalit9025/Web-Based-Writing-Tool/static/css/main.8852dd85.css.map",
+    "main.f82f5105.js.map": "/Lalit9025/Web-Based-Writing-Tool/static/js/main.f82f5105.js.map",
+    "787.0535d523.chunk.js.map": "/Lalit9025/Web-Based-Writing-Tool/static/js/787.0535d523.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8852dd85.css",
-    "static/js/main.b7a90b2d.js"
+    "static/js/main.f82f5105.js"
   ]
 }
