@@ -10,13 +10,11 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    /* background-color: #191919; */
     background-color: white;
     padding: 2rem 0rem 2rem 0;
     position: fixed;
     top: 0;
     z-index: 999;
-    border-bottom: px solid #333;
     
 }
 .content{
