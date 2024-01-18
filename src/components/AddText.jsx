@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Button,Modal, Form, Input } from 'antd';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import 'react-quill/dist/quill.core.css'; // Include the core styles
+import 'react-quill/dist/quill.snow.css'; // Include the snow theme
+
 
 
 const AddText = ({input,setInput,opentext,setOpentext}) => {
@@ -9,16 +14,48 @@ const AddText = ({input,setInput,opentext,setOpentext}) => {
     const [wordCount, setWordCount] = useState(0);
     const MAX_WORDS = 250;
 
-    const handleTextChange = (event) => {
-      const text = event.target.value;
-      const words = text.split(/\s+/).filter(word => word !== '');
-      if (words.length > MAX_WORDS) {
-       event.preventDefault();
-       return;
+    // const handleTextChange = (event) => {
+    //   const text = event.target.value;
+    //   const words = text.split(/\s+/).filter(word => word !== '');
+    //   if (words.length > MAX_WORDS) {
+    //    event.preventDefault();
+    //    return;
+    //   }
+    //   setWordCount(words.length);
+    //   form.setFieldsValue({ Text: text });
+    //  };
+
+
+    // const handleTextChange = (value) => {
+    //   const words = value.split(/\s+/).filter((word) => word !== '');
+    //   if (words.length > MAX_WORDS) {
+    //     // handle accordingly, e.g., truncate the text
+    //     value = words.slice(0, MAX_WORDS).join(' ');
+    //   }
+    //   setWordCount(words.length);
+    //   form.setFieldsValue({ Text: value });
+    // };
+    const handleTextChange = (value) => {
+
+      if (value === '') {
+        // If the text area is cleared, reset the word count to 0
+        setWordCount(0);
       }
-      setWordCount(words.length);
-      form.setFieldsValue({ Text: text });
-     };
+      else if(value === '<p><br></p>') {
+        setWordCount(0);
+        form.setFieldsValue({ Text: '' });
+      }else {
+        const words = value.split(/\s+/).filter((word) => word !== '');
+        if (words.length >= MAX_WORDS) {
+          // handle accordingly, e.g., truncate the text
+          value = words.slice(0, MAX_WORDS).join(' ');
+        }
+        setWordCount(words.length);
+      }
+      form.setFieldsValue({ Text: value });
+    };
+    
+    
 
 
      const handlePaste = (event) => {
@@ -46,28 +83,35 @@ const AddText = ({input,setInput,opentext,setOpentext}) => {
      };
      
 
-    const handleOk = () => {
-      const textValue = form.getFieldValue('Text');
+    const handleOk = (e) => {
+      const textValue = form.getFieldValue('Text') ||'';
+      const kk = e.target.value;
       const words = textValue.split(/\s+/).filter(word => word !== '');
+
+      if (textValue === '<p><br></p>' || textValue.trim() === '') {
+        Modal.warning({
+          title: 'Warning',
+          content: 'Please write something before clicking "Add".',
+        });
+        return;
+      }
     
       if (words.length > 0) {
-        form.validateFields().then((values) => {
-          console.log('Received values of form: ', values);
-          setInput([...input, { type: 'text', value: values.Text }]);
-          console.log(input);
+        form.validateFields().then(() => {
+          setInput([...input, { type: 'text', value: textValue }]);
           form.setFieldsValue({ Text: '' });
-          setWordCount(0);
+          console.log(words.length)
+          console.log(words)
+         
         });
       } else {
-        console.error('No words entered');
-        console.warn("please wir");
         Modal.warning({
           title: 'Warning',
           content: ' Please write something before clicking "Add".',
       });
       return; 
       }
-    
+      setWordCount(0);
       setOpentext(false);
     };
     
@@ -75,9 +119,10 @@ const AddText = ({input,setInput,opentext,setOpentext}) => {
 
     const handleCancel = () => {
         setOpentext(false);
-        form.setFieldsValue({ Text: '' });
         setWordCount(0);
-        };
+        form.setFieldsValue({ Text: '' });
+       
+    };
 
   return (
     <Modal
@@ -95,8 +140,19 @@ const AddText = ({input,setInput,opentext,setOpentext}) => {
      >
        <Form form={form} layout="vertical">
          <Form.Item name="Text" rules={[{ required: true }]}>
-           <Input.TextArea  placeholder='enter the text' onChange={handleTextChange} onPaste={handlePaste}  onKeyPress={handleKeyPress}/>
-           
+           {/* <Input.TextArea  placeholder='enter the text' onChange={handleTextChange} onPaste={handlePaste}  onKeyPress={handleKeyPress}/> */}
+           <ReactQuill
+              placeholder="Enter the text"
+              onChange= {handleTextChange}
+              modules={{
+              toolbar: [
+                        ['bold', 'italic', 'underline', 'strike'], // Customize toolbar buttons
+                        // [{ list: 'ordered' }, { list: 'bullet' }],
+                        [{ header: [1, 2, 3, 4, 5, 6] }],
+                        ['link'],
+                       ],
+                      }}
+          /> 
          </Form.Item>
          <p>{250-wordCount}/250</p>
        </Form>
