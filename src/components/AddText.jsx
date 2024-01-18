@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Button,Modal, Form, Input } from 'antd';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import 'react-quill/dist/quill.core.css'; // Include the core styles
-import 'react-quill/dist/quill.snow.css'; // Include the snow theme
+import 'react-quill/dist/quill.core.css'; 
+import 'react-quill/dist/quill.snow.css'; 
 
 
 
@@ -14,31 +14,10 @@ const AddText = ({input,setInput,opentext,setOpentext}) => {
     const [wordCount, setWordCount] = useState(0);
     const MAX_WORDS = 250;
 
-    // const handleTextChange = (event) => {
-    //   const text = event.target.value;
-    //   const words = text.split(/\s+/).filter(word => word !== '');
-    //   if (words.length > MAX_WORDS) {
-    //    event.preventDefault();
-    //    return;
-    //   }
-    //   setWordCount(words.length);
-    //   form.setFieldsValue({ Text: text });
-    //  };
-
-
-    // const handleTextChange = (value) => {
-    //   const words = value.split(/\s+/).filter((word) => word !== '');
-    //   if (words.length > MAX_WORDS) {
-    //     // handle accordingly, e.g., truncate the text
-    //     value = words.slice(0, MAX_WORDS).join(' ');
-    //   }
-    //   setWordCount(words.length);
-    //   form.setFieldsValue({ Text: value });
-    // };
+    
     const handleTextChange = (value) => {
 
       if (value === '') {
-        // If the text area is cleared, reset the word count to 0
         setWordCount(0);
       }
       else if(value === '<p><br></p>') {
@@ -47,7 +26,6 @@ const AddText = ({input,setInput,opentext,setOpentext}) => {
       }else {
         const words = value.split(/\s+/).filter((word) => word !== '');
         if (words.length >= MAX_WORDS) {
-          // handle accordingly, e.g., truncate the text
           value = words.slice(0, MAX_WORDS).join(' ');
         }
         setWordCount(words.length);
@@ -140,14 +118,12 @@ const AddText = ({input,setInput,opentext,setOpentext}) => {
      >
        <Form form={form} layout="vertical">
          <Form.Item name="Text" rules={[{ required: true }]}>
-           {/* <Input.TextArea  placeholder='enter the text' onChange={handleTextChange} onPaste={handlePaste}  onKeyPress={handleKeyPress}/> */}
            <ReactQuill
               placeholder="Enter the text"
               onChange= {handleTextChange}
               modules={{
               toolbar: [
-                        ['bold', 'italic', 'underline', 'strike'], // Customize toolbar buttons
-                        // [{ list: 'ordered' }, { list: 'bullet' }],
+                        ['bold', 'italic', 'underline', 'strike'], 
                         [{ header: [1, 2, 3, 4, 5, 6] }],
                         ['link'],
                        ],

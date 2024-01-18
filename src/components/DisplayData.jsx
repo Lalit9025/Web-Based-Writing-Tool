@@ -12,7 +12,7 @@ const DisplayData = ({input}) => {
       }, [input]);
 
     const moveUp = (index) => {
-        if (index === 0) return; // Don't move the first block
+        if (index === 0) return; 
         const newBlocks = [...blocks];
         const temp = newBlocks[index - 1];
         newBlocks[index - 1] = newBlocks[index];
@@ -21,7 +21,7 @@ const DisplayData = ({input}) => {
       };
      
       const moveDown = (index) => {
-        if (index === blocks.length - 1) return; // Don't move the last block
+        if (index === blocks.length - 1) return; 
         const newBlocks = [...blocks];
         const temp = newBlocks[index + 1];
         newBlocks[index + 1] = newBlocks[index];

@@ -4,7 +4,6 @@ import { UploadOutlined } from '@ant-design/icons';
 
 const AddImage = ({input,setInput,openimage,setOpenimage}) => {
    const [form] = Form.useForm();
-//    const [selectedFile, setSelectedFile] = useState(null);
    const [fileName, setFileName] = useState("select a file");
    const [selectedFile, setSelectedFile] = useState(new File([], '', { type: 'application/octet-stream' }));
    const [imageSelected, setImageSelected] = useState(false);
@@ -30,9 +29,6 @@ const handleOk = () => {
         setImageSelected(false); 
     });
 };
-
- 
-
    const handleCancel = () => {
        setOpenimage(false);
        setFileName("select a file")
