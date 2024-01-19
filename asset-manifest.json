@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Web-Based-Writing-Tool/static/css/main.a5d16322.css",
-    "main.js": "/Web-Based-Writing-Tool/static/js/main.ca5ad233.js",
+    "main.css": "/Web-Based-Writing-Tool/static/css/main.e3288e74.css",
+    "main.js": "/Web-Based-Writing-Tool/static/js/main.72263ebd.js",
     "static/js/787.0535d523.chunk.js": "/Web-Based-Writing-Tool/static/js/787.0535d523.chunk.js",
     "index.html": "/Web-Based-Writing-Tool/index.html",
-    "main.a5d16322.css.map": "/Web-Based-Writing-Tool/static/css/main.a5d16322.css.map",
-    "main.ca5ad233.js.map": "/Web-Based-Writing-Tool/static/js/main.ca5ad233.js.map",
+    "main.e3288e74.css.map": "/Web-Based-Writing-Tool/static/css/main.e3288e74.css.map",
+    "main.72263ebd.js.map": "/Web-Based-Writing-Tool/static/js/main.72263ebd.js.map",
     "787.0535d523.chunk.js.map": "/Web-Based-Writing-Tool/static/js/787.0535d523.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5d16322.css",
-    "static/js/main.ca5ad233.js"
+    "static/css/main.e3288e74.css",
+    "static/js/main.72263ebd.js"
   ]
 }
