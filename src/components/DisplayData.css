@@ -7,7 +7,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 28rem;
+    max-height: 28rem;
+    width: 25rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+.card_spec_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 28rem;
     width: 25rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 5px;
@@ -17,28 +31,48 @@
     font-family: 'Times New Roman', Times, serif;
     padding: 15px;
     line-height: 30px;
-    overflow-x: scroll;
-    height: 23rem;
+    overflow-x: auto;
+    max-height: 23rem;
     width: 23rem;
 
 }
+.card_text_div::-webkit-scrollbar {
+    width: 20px;
+    height: 5rem;
+  }
+.card_text_div::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+.card_text_div::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+.card_text_div::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
 .card_btn_bx{
     border-top: 1px solid rgba(108, 103, 103, 0.223);
     width: 100%;
-    height: 3rem;
+    max-height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding: 0.7rem 0
 }
+.card_btn_bx.single-block {
+    padding: 0;
+  }
 .card_img{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
 }.card_image{
-    height: 23rem;
-    width: 23rem;
+    max-height: 23rem;
+    width: 25rem;
+    border-radius: 5px;
 }
 
 
@@ -90,23 +124,26 @@
 }
 @media screen and (max-width:550px) {
     .card_spec{
-        height: 18rem;
+        max-height: 18rem;
         width: 16rem;
         
+    }
+    .card_spec_text{
+        max-height: 16rem;
+        width: 16rem;
     }
     .card_text_div{
         padding: 15px;
         line-height: 20px;
-        height: 14.5rem;
-        width: 14.5rem;
-    
+        max-height: 16rem;
+        width: 14rem;
     }
     .card_btn_bx{
-        height: 2rem;
+        max-height: 2rem;
     }
     .card_image{
-        height: 14.5rem;
-        width: 14.5rem;
+        max-height: 16rem;
+        width: 16rem;
         border-radius: 5px;
     }
     .button-30{

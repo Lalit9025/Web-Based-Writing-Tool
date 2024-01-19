@@ -7,6 +7,7 @@ import DisplayData from './DisplayData';
 import Modalbx from './Modalbx';
 
 const Modalmess = () => {
+  
  const [loading, setLoading] = useState(false);
  const [open, setOpen] = useState(false);
  const [opentext,setOpentext] = useState(false);
